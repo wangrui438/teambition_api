@@ -2,15 +2,16 @@ module TeambitionApi
   module Helpers
     class Oauth
       extend TeambitionApi::Helpers::Base
+      # private_class_method :new
 
       ACTIONS_HASH = {
-        authorize: "/oauth2/authorize?client_id=#{TeambitionApi.config.client_key}",
+        authorize: "/oauth2/authorize",
         access_token: "/oauth2/access_token"
       }
 
 
       def self.authorize_url(callback_url)
-        server_url = "#{TeambitionApi.config.oauth_server}#{ACTIONS_HASH[:authorize]}&redirect_uri=#{callback_url}"
+        server_url = "#{TeambitionApi.config.oauth_server}#{ACTIONS_HASH[:authorize]}?client_id=#{TeambitionApi.config.client_key}&redirect_uri=#{callback_url}"
         return server_url
       end
 
@@ -20,7 +21,7 @@ module TeambitionApi
         return result["access_token"]
       end
 
-      
+
 
     end
   end

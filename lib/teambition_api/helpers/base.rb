@@ -4,7 +4,7 @@ require 'json'
 module TeambitionApi
   module Helpers
     module Base
-      def get(action, params, server = nil)
+      def get(action, params = nil, server = nil)
         uri = URI.join(TeambitionApi.config.server, action)
         unless server.nil?
           uri = URI.join(server, action)
@@ -15,7 +15,7 @@ module TeambitionApi
 
         uri.query = URI.encode_www_form(params) unless params.nil?
         response = Net::HTTP.get_response(uri)
-
+        p response
         if response.is_a?(Net::HTTPSuccess)
           result = JSON.parse(response.body)
         else
