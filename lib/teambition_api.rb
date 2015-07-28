@@ -1,5 +1,7 @@
 require "teambition_api/version"
 require "teambition_api/configuration"
+require "teambition_api/organization"
+require "teambition_api/oauth"
 
 module TeambitionApi
   
