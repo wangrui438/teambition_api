@@ -1,31 +1,16 @@
 # TeambitionApi
 
-TODO: Write a gem description
+## 安装
 
-## Installation
+Gemfile文件添加如下行:
 
-Add this line to your application's Gemfile:
+    gem 'teambition_api', '~> 0.0.1'
 
-```ruby
-gem 'teambition_api'
-```
+添加`teambition_api.rb`,在`initializers`文件夹下
 
-And then execute:
-
-    $ bundle
-
-Or install it yourself as:
-
-    $ gem install teambition_api
-
-## Usage
-
-TODO: Write usage instructions here
-
-## Contributing
-
-1. Fork it ( https://github.com/[my-github-username]/teambition_api/fork )
-2. Create your feature branch (`git checkout -b my-new-feature`)
-3. Commit your changes (`git commit -am 'Add some feature'`)
-4. Push to the branch (`git push origin my-new-feature`)
-5. Create a new Pull Request
+   TeambitionApi.setup do |config|
+      config.oauth_server  = "https://account.teambition.com"
+      config.server        = "https://api.teambition.com"
+      config.client_key    = "your_key"
+      config.client_secret = "your_secrect"
+   end

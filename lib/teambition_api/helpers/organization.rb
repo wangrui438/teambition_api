@@ -7,8 +7,9 @@ module TeambitionApi
         get_all: "/api/organizations"
       }
 
-      def self.get_organizations
-        get(ACTIONS_HASH[:get_all])
+      def self.get_organizations(access_token)
+        params = { access_token: access_token }
+        get(ACTIONS_HASH[:get_all], params)
       end
     end
   end
